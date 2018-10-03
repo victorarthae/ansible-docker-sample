@@ -1,0 +1,18 @@
+---
+- name: Ensure database path exists.
+  file:
+    path: "/etc/docker-compose/db/sql-scripts"
+    state: directory
+
+- name: Add managed config file
+  template:
+    src: database_schema.sql.j2
+    dest: "/etc/docker-compose/db/sql-scripts/database_schema.sql"
+    mode: 0644
+
+- name: Copy dockerfile to remote server
+  template:
+    src: Dockerfile.j2
+    dest: "/etc/docker-compose/db/Dockerfile"
+    mode: 0644
+

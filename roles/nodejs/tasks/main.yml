@@ -1,0 +1,27 @@
+---
+- name: Ensure app nodejs path exists.
+  file:
+    path: "/etc/docker-compose/app/api"
+    state: directory
+
+- name: Copy dockerfile to remote server
+  template:
+    src: Dockerfile.j2
+    dest: "/etc/docker-compose/app/Dockerfile"
+    mode: 0644
+
+- name: Copy start shell
+  template:
+    src: start.sh.j2
+    dest: "/etc/docker-compose/app/start.sh"
+    mode: 0644
+
+- name: Copy aplication files to remote server
+  template: src={{item.src}} dest={{item.dest}}
+  with_items:
+      - { src: 'templates/api/server.js.j2', dest: '/etc/docker-compose/app/api/server.js' }
+      - { src: 'templates/api/package.json.j2', dest: '/etc/docker-compose/app/api/package.json' }
+
+- name: Install npm packages and modules
+  shell: cd /etc/docker-compose/app/api && npm install
+

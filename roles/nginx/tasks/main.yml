@@ -1,0 +1,18 @@
+---
+- name: Ensure nginx orch path exists.
+  file:
+    path: "/etc/docker-compose/web"
+    state: directory
+
+- name: Add managed config file
+  template:
+    src: nginx.conf.j2
+    dest: "/etc/docker-compose/web/nginx.conf"
+    mode: 0644
+
+- name: Copy dockerfile to remote server
+  template:
+    src: Dockerfile.j2
+    dest: "/etc/docker-compose/web/Dockerfile"
+    mode: 0644
+

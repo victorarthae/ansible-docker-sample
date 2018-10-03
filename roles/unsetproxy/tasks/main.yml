@@ -1,0 +1,20 @@
+---
+
+- name: Clear proxy settings.
+  shell: echo > /etc/environment
+  tags:
+    - proxy
+
+- name: Delete docker proxy file
+  file:
+    state: absent
+    path: "/etc/systemd/system/docker.service.d/http-proxy.conf"
+
+- name: Reload docker service
+  systemd:
+    name: docker
+    state: restarted
+    daemon_reload: yes
+
+- name: Start containers
+  shell: cd /etc/docker-compose && docker-compose start

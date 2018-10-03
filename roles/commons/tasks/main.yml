@@ -1,0 +1,14 @@
+---
+- name: add epel repository
+  yum_repository:
+    name: epel
+    description: EPEL YUM repo
+    baseurl: https://download.fedoraproject.org/pub/epel/$releasever/$basearch/
+    gpgcheck: no
+
+- name: "Install Common Libraries from CentOS mirror"
+  yum: state=present name={{ item }} update_cache=yes
+  with_items:
+  - vim
+  - gcc
+  - libxml2-devel

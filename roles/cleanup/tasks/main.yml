@@ -1,0 +1,5 @@
+---
+- name: Cleaning orchestration path
+  file:
+    state: absent
+    path: "/etc/docker-compose/"

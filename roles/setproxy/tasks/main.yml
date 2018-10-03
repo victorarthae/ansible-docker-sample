@@ -1,0 +1,24 @@
+---
+
+- name: Set Proxydd
+  blockinfile:
+    dest: /etc/environment
+    block: |
+      https_proxy=http://192.168.100.129:8880
+      http_proxy=http://192.168.100.129:8880
+  tags:
+    - proxy
+
+- name: Set docker proxy
+  blockinfile:
+    dest: /etc/systemd/system/docker.service.d/http-proxy.conf
+    block: |
+      [Service]
+      Environment="https_proxy=http://192.168.100.129:8880"
+
+- name: Reload docker service
+  systemd: 
+    name: docker
+    state: restarted 
+    daemon_reload: yes
+

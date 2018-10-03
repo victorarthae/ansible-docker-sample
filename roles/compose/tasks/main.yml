@@ -1,0 +1,14 @@
+---
+- name: Ensure docker-compose path exists.
+  file:
+    path: "/etc/docker-compose"
+    state: directory
+
+- name: Add managed config file
+  template:
+    src: docker-compose.yml.j2
+    dest: "/etc/docker-compose/docker-compose.yml"
+    mode: 0644
+
+- name: Build containers
+  shell: "cd /etc/docker-compose && docker-compose up -d --build"

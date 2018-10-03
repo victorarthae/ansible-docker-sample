@@ -1,0 +1,13 @@
+---
+- hosts:
+    - all
+  become: true
+  roles:
+    - setproxy
+    - commons
+    - docker
+    - mysql
+    - nodejs
+    - nginx
+    - compose
+    - unsetproxy

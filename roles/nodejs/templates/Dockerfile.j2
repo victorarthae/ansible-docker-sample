@@ -1,0 +1,9 @@
+FROM node:latest
+
+RUN mkdir /app/api -p
+COPY api /app/api
+ADD start.sh /start.sh
+RUN chmod 755 /start.sh
+CMD ["/start.sh"]
+
+
