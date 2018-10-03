@@ -24,7 +24,7 @@ Ja com o ansible instalado vamos fazer o seguinte:
 ```
 $ git clone https://github.com/victorarthae/ansible-docker-sample &&
 cd ansible-docker-sample/ &&
-chmod +x *.sh &&
+chmod +x *.sh
 ```
 
 ### Setting up ansible
