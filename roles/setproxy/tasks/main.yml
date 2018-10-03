@@ -8,6 +8,19 @@
       http_proxy=http://192.168.100.129:8880
   tags:
     - proxy
+- name: install docker
+  yum:
+    name: docker
+    state: latest
+
+- name: Ensure docker path exists.
+  file:
+    path: "/etc/systemd/system/docker.service.d"
+    state: directory
+- name: Ensure docker proxy file exists.
+  file:
+    path: "/etc/systemd/system/docker.service.d/http-proxy.conf"
+    state: touch
 
 - name: Set docker proxy
   blockinfile:
