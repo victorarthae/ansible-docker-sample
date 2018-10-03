@@ -34,7 +34,7 @@ Caso você não precise utilizar o proxy basta retirar as roles de "setproxy" e 
 Outro ponto, eu utilizei uma vm que tinha criado para realizar o projeto mas ele pode ser executado na mesma maquina que esta rodando o Ansible (a nivel de conhecimento).
 Para alterar o ip do host que irá receber os containers va até o [hosts](https://github.com/victorarthae/ansible-docker-sample/blob/master/inventories/prod/hosts)
 
-Caso tenha duvida sobre como criar uma VM-kvm via ansible eu deixei algumas partes para consulta [neste repositorio](https://github.com/victorarthae/infra-scripts).
+Caso tenha duvida sobre como criar uma VM-kvm via ansible eu deixei algumas partes para consulta [neste repositorio](https://github.com/victorarthae/ansible-kvm).
 O Ansible utiliza ssh para realizar seus comandos, então certifique-se de seu host ter as chaves criadas e vinculadas ao authorized_hosts, se tiver duvida em como fazer isso dê uma lida [neste artigo da DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys--2)
 
 ### Starting automation
