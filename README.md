@@ -39,20 +39,21 @@ O Ansible utiliza ssh para realizar seus comandos, entãcertifique-se de seu hos
 
 ### Starting automation
 
-Depois de ter configurado chave de acesso, proxy (caso preciso) e qual host iráeceber os containers, estáa hora de começ a automaç.
+Depois de ter configurado chave de acesso, proxy (caso preciso) e qual host irá receber os containers, estáa hora de começa a automaçao.
 Para isso usaremos o comando dentro da pasta do projeto:
 
 ```
 $ ansible-playbook -i inventories/prod/hosts automated-orchestration.yml
 ```
 
-Apóodar este comando o Ansible começá provisionar tudo necessario para as aplicaçs.
+Apóodar este comando o Ansible começá provisionar tudo necessario para as aplicaçoes.
 
 ### Testing
 
-Existem trêscripts para testar a aplicaç:
+Existem trêscripts para testar a aplicaçao:
 
-Testando a criaç de uma anotaç
+Testando a criaç de uma anotaçao
+
 *Primeiro parametro é IP do host onde estãos containers*
 *Segudo parametro é mensagem da anotaç*
 ```
@@ -60,14 +61,16 @@ $ ./cria_anotacao.sh 192.168.100.191 "teste asdasd"
 OK
 ```
 
-Testando a listagem das anotaçs
+Testando a listagem das anotaçoes
+
 *Primeiro parametro é IP do host onde estãos containers*
 ```
 $ ./listar_anotacoes.sh 192.168.100.191
 [{"Id":1,"Text":"`teste asdasd` = ''","CreateDate":"2018-10-03T18:39:21.000Z"}]
 ```
 
-Testando a listagem das anotaçs 
+Testando a listagem das anotaçoes 
+
 *Primeiro parametro é IP do host onde estãos containers*
 *Segudo parametro é ID da anotaç*
 ```
